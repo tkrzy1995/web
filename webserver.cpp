@@ -44,9 +44,10 @@ int main(){
 	    char recv_buf[1024];
 	    char send_msg[] = "hello, world!";
 	    char buf[520] = "HTTP/1.1 200 ok\r\nconnection: close\r\n\r\n";
-	    int s = send(connfd, buf, strlen(buf), 0);
-	    recv(connfd, recv_buf, 1024, 0);
-	    cout << "receive success!" << endl;
+		int fd = open("html/1.html", O_RDONLY);
+//	    int s = send(connfd, buf, strlen(buf), 0);
+//	    recv(connfd, recv_buf, 1024, 0);
+//	    cout << "receive success!" << endl;
 	    sendfile(connfd, fd, NULL, 2500);
 
 	    close(connfd); 
